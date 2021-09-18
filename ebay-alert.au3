@@ -1,12 +1,29 @@
 #include <Array.au3>
 #include <File.au3>
 
+local $searches[0]
+local $exacts[0]
+
 while 1
 
-	$searches = FileReadToArray('searches.txt')
+	$queries = FileReadToArray('searches.txt')
+	;form searches
+	for $s = 0 to ubound($queries)-1
+		$temp = stringsplit($queries[$s], ',', 3)
+		_ArrayAdd($searches, $temp[0])
+	next
+
+	;form exact matches
+	for $e = 0 to ubound($queries)-1
+		$temp = stringsplit($queries[$e], ',', 3)
+		if $temp[1] <> '' then
+			_arrayadd($exacts, $temp[1])
+		else
+			_arrayadd($exacts, false)
+		endif
+	next
+
 	for $s = 0 to ubound($searches)-1
-
-
 		$url = $searches[$s]
 		inetget($url, 'response.txt')
 		$html = FileReadToArray('response.txt')
@@ -23,12 +40,17 @@ while 1
 					$name = stringsplit($listings[$j], '"', 2)
 					$name = $name[0]
 
+					;check for exact match within listing name
+					$exact = $exacts[$s]
+					if ($exact <> false) then
+						if not stringinstr($name, $exact) then continueloop
+					endif
+
+
 					;listing url/id (should be unique)
 					$id = stringsplit($listings[$j], 'item__link href=', 3)
 					$id = stringsplit($id[1], '?', 3)
 					$id = $id[0]
-
-					;price
 
 					;price
 					$price = stringsplit($listings[$j], '<span class=s-item__price>', 3)
@@ -47,7 +69,6 @@ while 1
 						$condition = $condition[0]
 					else
 						$condition = '?'
-
 					endif
 
 
@@ -67,14 +88,13 @@ while 1
 						FileWriteLine('found.txt', $id)
 
 						;user prompt for opening listing in browser
-						Beep(1000, 250)
+						Beep(200, 250)
 						$button = msgbox(52, 'New ebay listing found', $price & ' USD · ' & $condition &  @crlf & $name & @crlf & @crlf & 'View listing?' )
 						if $button = 6 then
-							Beep(250, 50)
+							Beep(100, 50)
 							ShellExecute($id)
 							sleep(1000)
 						else
-							Beep(250, 50)
 							sleep(1000)
 						endif
 

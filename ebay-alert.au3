@@ -1,10 +1,10 @@
 #include <Array.au3>
 #include <File.au3>
 
-local $searches[0]
-local $exacts[0]
-
 while 1
+	local $searches[0]
+	local $includes[0]
+	local $excludes[0]
 
 	$queries = FileReadToArray('searches.txt')
 	;form searches
@@ -13,15 +13,24 @@ while 1
 		_ArrayAdd($searches, $temp[0])
 	next
 
-	;form exact matches
+	;form includes/escludes
 	for $e = 0 to ubound($queries)-1
 		$temp = stringsplit($queries[$e], ',', 3)
 		if $temp[1] <> '' then
-			_arrayadd($exacts, $temp[1])
+			_arrayadd($includes, $temp[1])
 		else
-			_arrayadd($exacts, false)
+			_arrayadd($includes, false)
 		endif
+
+		;excludes
+		if $temp[2] <> '' then
+			_arrayadd($excludes, $temp[2])
+		else
+			_arrayadd($excludes, false)
+		endif
+
 	next
+
 
 	for $s = 0 to ubound($searches)-1
 		$url = $searches[$s]
@@ -40,10 +49,16 @@ while 1
 					$name = stringsplit($listings[$j], '"', 2)
 					$name = $name[0]
 
-					;check for exact match within listing name
-					$exact = $exacts[$s]
-					if ($exact <> false) then
-						if not stringinstr($name, $exact) then continueloop
+					;check for included term within listing name
+					$include = $includes[$s]
+					if ($include <> false) then
+						if not stringinstr($name, $include) then continueloop
+					endif
+
+					;check for excluded term in listing name
+					$exclude = $excludes[$s]
+					if ($exclude <> false) then
+						if stringinstr($name, $exclude) then continueloop
 					endif
 
 

@@ -8,8 +8,7 @@ operation
 <REQUIRED: URL OF EBAY SEARCH>,<OPTIONAL: INCLUDE THIS TERM IN LISTING TITLE>,<OPTIONAL: EXCLUDE THIS TERM IN LISTING TITLE>
 -examples:
 https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=10tb+hdd&_sacat=0,, (include/exclude both omitted)
-https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=10tb+hdd&_sacat=0,enclosure, (include: 
-'enclosure', exclude omitted)
+https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=10tb+hdd&_sacat=0,enclosure, (include: 'enclosure', exclude omitted)
 https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313&_nkw=10tb+hdd&_sacat=0,enclosure,bay (include: 'enclosure', exclude: 'bay')
 
 -run ebay-alert.au3

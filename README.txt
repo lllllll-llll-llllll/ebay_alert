@@ -1,4 +1,5 @@
 autoit script for alerting you to new ebay listings
+monitors user-specified ebay searches, with the ability to include or exclude listings based on matching terms in the listing titles
 
 requires
 -autoit

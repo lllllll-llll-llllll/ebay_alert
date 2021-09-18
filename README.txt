@@ -4,7 +4,7 @@ requires
 -autoit
 
 operation
--searches.txt contains all the search listings you want to monitor, separated by new lines (use ebay to search for something, apply search filters, then just copy/paste the url into searches.txt)
+-searches.txt contains all the search listings you want to monitor, followed by a comma, then an exact match you want to match in the listing titles to remove unrelated results, terminated with a newline. see 'searches.txt' for examples.
 -run ebay-alert.au3
 -you can add or delete searches within searches.txt at any time
 -every 30 seconds all the ebay search results get scraped to find new listings

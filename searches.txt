@@ -1,2 +1,4 @@
-https://www.ebay.com/sch/i.html?_from=R40&_nkw=vega+56&_sacat=0&_sop=15&LH_BIN=1&rt=nc&_udlo=300&_udhi=1000&_fsrp=1
-https://www.ebay.com/sch/i.html?_from=R40&_nkw=vega+64&_sacat=0&_sop=15&LH_BIN=1&_udlo=300&_udhi=1000&rt=nc
+https://www.ebay.com/sch/i.html?_from=R40&_nkw=vega+56&_sacat=0&_sop=15&LH_BIN=1&rt=nc&_udlo=300&_udhi=800&_fsrp=1,vega 56,jersey
+https://www.ebay.com/sch/i.html?_from=R40&_nkw=vega+64&_sacat=0&_sop=15&LH_BIN=1&_udlo=300&_udhi=800&rt=nc,vega 64,
+https://www.ebay.com/sch/i.html?_from=R40&_nkw=16tb+hdd&_sacat=0&_sop=15&LH_BIN=1&_udhi=160&rt=nc&Storage%2520Capacity=16%2520TB&_dcat=56083,16tb,enclosure
+https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2334524.m570.l1313&_nkw=10tb+hdd+-case&_sacat=0&LH_TitleDesc=0&_fsrp=1&rt=nc&_odkw=10tb+hdd&_osacat=0&LH_BIN=1&_dcat=56083&Storage%2520Capacity=10%2520TB&_sop=15&_oaa=1&LH_PrefLoc=3&_udhi=100,10tb,enclosure

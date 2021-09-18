@@ -30,10 +30,15 @@ while 1
 
 					;price
 
+					;price
 					$price = stringsplit($listings[$j], '<span class=s-item__price>', 3)
-					$price = stringsplit($price[1], '.', 3)
-					$price = stringsplit($price[0], '$', 3)
-					$price = $price[1]
+					if ubound($price) > 1 then
+						$price = stringsplit($price[1], '.', 3)
+						$price = stringsplit($price[0], '$', 3)
+						$price = $price[1]
+					else
+						$price = '?'
+					endif
 
 					;condition
 					$condition = stringsplit($listings[$j], '<span class=SECONDARY_INFO>', 3)
